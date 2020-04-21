@@ -25,7 +25,7 @@ def search_results(query=""):
         results = fetch_by_user_name(query)
 
     if not len(results):
-        return render_template("error_page.html", error=f"No results found for your query: {query}")
+        return render_template("error_page.html", error="No results found for your query: {}".format(query))
     return render_template("search_results.html", results=results)
 
 
@@ -72,7 +72,7 @@ def edit_employee():
             department_no=result[10],
         )
     except IndexError:
-        return render_template("error_page.html", error=f"Employee Id: {id} does not exist")
+        return render_template("error_page.html", error="Employee Id: {} does not exist".format(id))
 
 @app.route("/edit_employee", methods=["POST"])
 def edit_employee_process():

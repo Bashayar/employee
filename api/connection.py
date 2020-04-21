@@ -10,4 +10,4 @@ connection = pymysql.connect(host='34.89.87.7',
                            user= db_user,
                             password= db_pass,
                             db= db_name,
-                            unix_socket=f"/cloudsql/{cloud_sql_connection_name}")
+                            unix_socket="/cloudsql/{}".format(cloud_sql_connection_name))
